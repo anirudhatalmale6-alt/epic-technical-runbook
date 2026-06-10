@@ -1,84 +1,132 @@
-// EPIC Blog Post Branding & Block Patterns
+// EPIC Blog Post Branding & Block Patterns v2
 // Add as WPCode snippet: PHP Snippet, Run Everywhere
 
 // 1. Add EPIC brand styles to all blog posts
 add_action('wp_head', function() {
     if (is_single() || is_page()) {
         echo '<style>
-/* EPIC Blog Post Styles */
-.entry-content h1, .entry-content h2 {
-    color: #001F3F;
-    font-weight: 700;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #E2E8F0;
-    margin-top: 32px;
-    margin-bottom: 16px;
+/* EPIC Blog Post Styles v2 - Help Guide look */
+article.ast-article-single .entry-content,
+.entry-content {
+    max-width: 820px;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #2D3748;
 }
+
+/* Headings - navy with gold underline accent */
+article .entry-content h1,
+article .entry-content h2,
+.entry-content h1,
+.entry-content h2 {
+    color: #001F3F !important;
+    font-weight: 700 !important;
+    padding-bottom: 12px !important;
+    border-bottom: 3px solid #D4AF37 !important;
+    margin-top: 40px !important;
+    margin-bottom: 20px !important;
+    font-size: 24px !important;
+}
+article .entry-content h3,
 .entry-content h3 {
-    color: #1A365D;
-    font-weight: 600;
-    margin-top: 24px;
-    margin-bottom: 8px;
+    color: #1A365D !important;
+    font-weight: 600 !important;
+    margin-top: 28px !important;
+    margin-bottom: 10px !important;
+    font-size: 18px !important;
 }
-.entry-content h2:first-child { margin-top: 0; }
+article .entry-content h2:first-child,
+.entry-content h2:first-child { margin-top: 0 !important; }
 
-/* Tip Box - use the "Verse" block or add CSS class "epic-tip" */
-.entry-content .epic-tip,
-.entry-content .wp-block-verse.epic-tip {
-    background: #FFFBEB;
-    border: 1px solid #FDE68A;
-    border-radius: 6px;
-    padding: 16px 20px;
-    margin: 16px 0;
-    font-size: 14px;
-    color: #92400E;
-    font-family: inherit;
-    white-space: normal;
+/* Paragraphs */
+article .entry-content p,
+.entry-content p {
+    color: #4A5568;
+    margin-bottom: 14px;
+    font-size: 15px;
 }
-.entry-content .epic-tip strong { color: #78350F; }
 
-/* Info Box - blue variant */
+/* Lists */
+article .entry-content ul li,
+article .entry-content ol li,
+.entry-content ul li,
+.entry-content ol li {
+    color: #4A5568;
+    margin-bottom: 6px;
+}
+
+/* Section wrapper for content blocks */
+article .entry-content .wp-block-group,
+.entry-content .wp-block-group {
+    background: #fff;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    padding: 28px;
+    margin-bottom: 20px;
+}
+
+/* Tip Box */
+article .entry-content .epic-tip,
+.entry-content .epic-tip {
+    background: #FFFBEB !important;
+    border: 1px solid #FDE68A !important;
+    border-radius: 6px !important;
+    padding: 16px 20px !important;
+    margin: 16px 0 !important;
+    font-size: 14px !important;
+    color: #92400E !important;
+    font-style: normal !important;
+    white-space: normal !important;
+}
+.entry-content .epic-tip strong { color: #78350F !important; }
+
+/* Info Box */
+article .entry-content .epic-info,
 .entry-content .epic-info {
-    background: #EFF6FF;
-    border: 1px solid #BFDBFE;
-    border-radius: 6px;
-    padding: 16px 20px;
-    margin: 16px 0;
-    font-size: 14px;
-    color: #1E40AF;
+    background: #EFF6FF !important;
+    border: 1px solid #BFDBFE !important;
+    border-radius: 6px !important;
+    padding: 16px 20px !important;
+    margin: 16px 0 !important;
+    font-size: 14px !important;
+    color: #1E40AF !important;
 }
 
-/* Warning Box - red variant */
+/* Warning Box */
+article .entry-content .epic-warning,
 .entry-content .epic-warning {
-    background: #FEF2F2;
-    border: 1px solid #FECACA;
-    border-radius: 6px;
-    padding: 16px 20px;
-    margin: 16px 0;
-    font-size: 14px;
-    color: #991B1B;
+    background: #FEF2F2 !important;
+    border: 1px solid #FECACA !important;
+    border-radius: 6px !important;
+    padding: 16px 20px !important;
+    margin: 16px 0 !important;
+    font-size: 14px !important;
+    color: #991B1B !important;
 }
 
-/* Numbered Steps - use an ordered list with class "epic-steps" */
+/* Numbered Steps */
+article .entry-content ol.epic-steps,
 .entry-content ol.epic-steps {
     counter-reset: step;
-    list-style: none;
-    padding-left: 0;
+    list-style: none !important;
+    padding-left: 0 !important;
 }
+article .entry-content ol.epic-steps li,
 .entry-content ol.epic-steps li {
     counter-increment: step;
     position: relative;
-    padding-left: 40px;
-    margin-bottom: 14px;
+    padding-left: 44px !important;
+    margin-bottom: 16px !important;
     line-height: 1.7;
 }
+article .entry-content ol.epic-steps li::before,
 .entry-content ol.epic-steps li::before {
     content: counter(step);
     position: absolute;
     left: 0;
     top: 2px;
-    width: 26px;
-    height: 26px;
+    width: 28px;
+    height: 28px;
     background: #001F3F;
     color: #fff;
     border-radius: 50%;
@@ -89,95 +137,117 @@ add_action('wp_head', function() {
     justify-content: center;
 }
 
-/* CTA Buttons - applies to WP button blocks */
+/* CTA Buttons */
+article .entry-content .wp-block-button .wp-block-button__link,
 .entry-content .wp-block-button .wp-block-button__link {
-    background: #001F3F;
-    color: #fff;
-    border-radius: 6px;
-    padding: 12px 28px;
-    font-weight: 600;
-    font-size: 15px;
-    transition: background 0.2s;
+    background: #001F3F !important;
+    color: #fff !important;
+    border-radius: 6px !important;
+    padding: 14px 32px !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    transition: background 0.2s !important;
+    text-decoration: none !important;
 }
+article .entry-content .wp-block-button .wp-block-button__link:hover,
 .entry-content .wp-block-button .wp-block-button__link:hover {
-    background: #003366;
+    background: #003366 !important;
 }
+article .entry-content .wp-block-button.is-style-outline .wp-block-button__link,
 .entry-content .wp-block-button.is-style-outline .wp-block-button__link {
-    background: transparent;
-    color: #001F3F;
-    border: 2px solid #001F3F;
+    background: transparent !important;
+    color: #001F3F !important;
+    border: 2px solid #001F3F !important;
 }
+article .entry-content .wp-block-button.is-style-outline .wp-block-button__link:hover,
 .entry-content .wp-block-button.is-style-outline .wp-block-button__link:hover {
-    background: #001F3F;
-    color: #fff;
+    background: #001F3F !important;
+    color: #fff !important;
 }
 
-/* Gold accent button variant - add class "epic-gold" to button block */
+/* Gold CTA variant */
+article .entry-content .wp-block-button.epic-gold .wp-block-button__link,
 .entry-content .wp-block-button.epic-gold .wp-block-button__link {
-    background: #D4AF37;
-    color: #001F3F;
-}
-.entry-content .wp-block-button.epic-gold .wp-block-button__link:hover {
-    background: #C4A030;
+    background: #D4AF37 !important;
+    color: #001F3F !important;
 }
 
-/* Section cards */
+/* Section card style */
+article .entry-content .epic-section,
 .entry-content .epic-section {
-    background: #fff;
-    border: 1px solid #E2E8F0;
-    border-radius: 8px;
-    padding: 28px;
-    margin-bottom: 20px;
+    background: #F8FAFC !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 10px !important;
+    padding: 32px !important;
+    margin: 24px 0 !important;
 }
 
-/* Feature grid using WP columns */
-.entry-content .epic-features .wp-block-column {
-    background: #F8FAFC;
-    border: 1px solid #E2E8F0;
-    border-radius: 8px;
-    padding: 20px;
-}
-
-/* Table styling */
+/* Tables */
+article .entry-content table,
 .entry-content table {
     border-collapse: collapse;
     width: 100%;
     margin: 16px 0;
+    border-radius: 8px;
+    overflow: hidden;
 }
+article .entry-content table th,
 .entry-content table th {
-    background: #001F3F;
-    color: #fff;
-    padding: 10px 14px;
+    background: #001F3F !important;
+    color: #fff !important;
+    padding: 12px 16px !important;
     text-align: left;
     font-size: 13px;
     font-weight: 600;
 }
+article .entry-content table td,
 .entry-content table td {
-    padding: 10px 14px;
-    border-bottom: 1px solid #E2E8F0;
+    padding: 12px 16px !important;
+    border-bottom: 1px solid #E2E8F0 !important;
     font-size: 14px;
 }
+article .entry-content table tr:hover td,
 .entry-content table tr:hover td { background: #F8FAFC; }
 
-/* Blockquote styling */
+/* Blockquotes - gold accent */
+article .entry-content blockquote,
 .entry-content blockquote {
-    border-left: 4px solid #D4AF37;
-    background: #FAFAF5;
-    padding: 16px 24px;
-    margin: 16px 0;
+    border-left: 4px solid #D4AF37 !important;
+    background: #FAFAF5 !important;
+    padding: 20px 28px !important;
+    margin: 20px 0 !important;
     font-style: italic;
-    color: #4A5568;
+    color: #4A5568 !important;
+    border-radius: 0 6px 6px 0 !important;
+}
+
+/* Images - subtle shadow */
+article .entry-content img,
+.entry-content img {
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Separators - gold */
+article .entry-content hr,
+.entry-content hr {
+    border: none !important;
+    border-top: 2px solid #D4AF37 !important;
+    margin: 32px 0 !important;
 }
 </style>';
     }
 });
 
-// 2. Also add styles to the block editor so authors see the branding while writing
+// 2. Editor styles for preview in block editor
 add_action('enqueue_block_editor_assets', function() {
     wp_add_inline_style('wp-edit-blocks', '
-        .editor-styles-wrapper h2 { color: #001F3F; font-weight: 700; }
-        .editor-styles-wrapper h3 { color: #1A365D; font-weight: 600; }
-        .editor-styles-wrapper .wp-block-button .wp-block-button__link { background: #001F3F; border-radius: 6px; }
+        .editor-styles-wrapper h2 { color: #001F3F !important; font-weight: 700; border-bottom: 3px solid #D4AF37; padding-bottom: 10px; }
+        .editor-styles-wrapper h3 { color: #1A365D !important; font-weight: 600; }
+        .editor-styles-wrapper .wp-block-button .wp-block-button__link { background: #001F3F !important; border-radius: 6px; }
+        .editor-styles-wrapper .epic-tip { background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 6px; padding: 16px; color: #92400E; }
+        .editor-styles-wrapper .epic-info { background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 6px; padding: 16px; color: #1E40AF; }
+        .editor-styles-wrapper .epic-warning { background: #FEF2F2; border: 1px solid #FECACA; border-radius: 6px; padding: 16px; color: #991B1B; }
     ');
 });
 
