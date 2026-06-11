@@ -5,7 +5,6 @@
 add_action('wp_body_open', function() {
     echo '<div id="epic-update-banner" style="background:#0b2a4a;color:#fff;text-align:center;padding:8px 40px 8px 16px;font-size:13px;position:relative;z-index:9999;font-family:-apple-system,BlinkMacSystemFont,sans-serif;">
         We are refreshing our website to serve you better. Some sections may be under construction.
-        <a href="/contact-us/" style="color:#D4AF37;text-decoration:underline;margin-left:8px;">Contact us</a> if you need help.
         <button onclick="this.parentElement.style.display=\'none\'" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;color:#fff;font-size:18px;cursor:pointer;padding:4px;">&times;</button>
     </div>';
 });
